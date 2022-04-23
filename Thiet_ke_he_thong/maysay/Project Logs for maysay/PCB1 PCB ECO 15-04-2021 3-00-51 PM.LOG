@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=DATA_TEM Pin=NodeMCU-1-D3
+Removed Pin From Net: NetName=DATA_HUM Pin=NodeMCU-1-D4
+Added Pin To Net: NetName=DATA_HUM Pin=NodeMCU-1-D3
+Added Pin To Net: NetName=DATA_TEM Pin=NodeMCU-1-D4
+Added Room: Name=Sheet1

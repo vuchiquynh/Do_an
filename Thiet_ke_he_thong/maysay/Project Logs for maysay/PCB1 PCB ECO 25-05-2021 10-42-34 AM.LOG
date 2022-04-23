@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=SET Pin=C2-1
+Removed Pin From Net: NetName=DOWN Pin=C2-2
+Removed Pin From Net: NetName=UP Pin=C2-3
+Removed Pin From Net: NetName=EXIT Pin=C2-4
+Removed Pin From Net: NetName=SET1 Pin=C3-1
+Removed Pin From Net: NetName=DOWN1 Pin=C3-2
+Removed Pin From Net: NetName=UP1 Pin=C3-3
+Removed Pin From Net: NetName=EXIT1 Pin=C3-4
+Change Component DesignItemId : Designator=C2 Old DesignItemId=JP4 New DesignItemId=JP6
+Change Component DesignItemId : Designator=C3 Old DesignItemId=JP4 New DesignItemId=JP6
+Change Component Footprint: Designator=C2 Old Footprint=JP4-C1T New Footprint=JP6-C1T
+Change Component Footprint: Designator=C3 Old Footprint=JP4-C1T New Footprint=JP6-C1T
+Change Component Comment : Designator=C2 Old Comment=JP4 New Comment=JP6
+Change Component Comment : Designator=C3 Old Comment=JP4 New Comment=JP6
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=SET Pin=C2-2
+Added Pin To Net: NetName=DOWN Pin=C2-3
+Added Pin To Net: NetName=UP Pin=C2-4
+Added Pin To Net: NetName=EXIT Pin=C2-5
+Added Pin To Net: NetName=VCC Pin=C2-6
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=SET1 Pin=C3-2
+Added Pin To Net: NetName=DOWN1 Pin=C3-3
+Added Pin To Net: NetName=UP1 Pin=C3-4
+Added Pin To Net: NetName=EXIT1 Pin=C3-5
+Added Pin To Net: NetName=VCC Pin=C3-6
+Added Member To Class: ClassName=Sheet1 Member=Component C2 JP6
+Added Room: Name=Sheet1

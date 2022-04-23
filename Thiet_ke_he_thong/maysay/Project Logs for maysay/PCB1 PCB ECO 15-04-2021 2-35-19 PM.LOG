@@ -1,0 +1,62 @@
+Added Component: Designator=C1(JP3-C1T)
+Added Component: Designator=C2(JP4-C1T)
+Added Component: Designator=IC1(JP3-C1T)
+Added Component: Designator=IC2(JP3-C1T)
+Added Component: Designator=NodeMCU-1(NodeMCU V1.0 ESP-12E)
+Added Component: Designator=R1(RES-1/4W)
+Added Component: Designator=SW1(SW2)
+Added Component: Designator=SW2(SW2)
+Added Component: Designator=SW3(SW2)
+Added Component: Designator=SW4(SW2)
+Added Pin To Net: NetName=DATA_HUM Pin=IC2-2
+Added Pin To Net: NetName=DATA_HUM Pin=NodeMCU-1-D4
+Added Net: Name=DATA_HUM
+Added Pin To Net: NetName=DATA_TEM Pin=IC1-2
+Added Pin To Net: NetName=DATA_TEM Pin=NodeMCU-1-D3
+Added Pin To Net: NetName=DATA_TEM Pin=R1-2
+Added Net: Name=DATA_TEM
+Added Pin To Net: NetName=DOWN Pin=NodeMCU-1-D7
+Added Pin To Net: NetName=DOWN Pin=SW3-1
+Added Net: Name=DOWN
+Added Pin To Net: NetName=EXIT Pin=NodeMCU-1-D5
+Added Pin To Net: NetName=EXIT Pin=SW1-1
+Added Net: Name=EXIT
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=IC1-1
+Added Pin To Net: NetName=GND Pin=IC2-1
+Added Pin To Net: NetName=GND Pin=NodeMCU-1-GND
+Added Pin To Net: NetName=GND Pin=NodeMCU-1-GND
+Added Pin To Net: NetName=GND Pin=NodeMCU-1-GND
+Added Pin To Net: NetName=GND Pin=NodeMCU-1-GND
+Added Pin To Net: NetName=GND Pin=SW1-2
+Added Pin To Net: NetName=GND Pin=SW2-2
+Added Pin To Net: NetName=GND Pin=SW3-2
+Added Pin To Net: NetName=GND Pin=SW4-2
+Added Net: Name=GND
+Added Pin To Net: NetName=OUT_DEAY Pin=C1-2
+Added Pin To Net: NetName=OUT_DEAY Pin=NodeMCU-1-D0
+Added Net: Name=OUT_DEAY
+Added Pin To Net: NetName=SCL Pin=C2-4
+Added Pin To Net: NetName=SCL Pin=NodeMCU-1-D1
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=C2-3
+Added Pin To Net: NetName=SDA Pin=NodeMCU-1-D2
+Added Net: Name=SDA
+Added Pin To Net: NetName=SET Pin=NodeMCU-1-D8
+Added Pin To Net: NetName=SET Pin=SW4-1
+Added Net: Name=SET
+Added Pin To Net: NetName=UP Pin=NodeMCU-1-D6
+Added Pin To Net: NetName=UP Pin=SW2-1
+Added Net: Name=UP
+Added Pin To Net: NetName=VCC Pin=C1-3
+Added Pin To Net: NetName=VCC Pin=C2-2
+Added Pin To Net: NetName=VCC Pin=IC1-3
+Added Pin To Net: NetName=VCC Pin=IC2-3
+Added Pin To Net: NetName=VCC Pin=NodeMCU-1-3V3
+Added Pin To Net: NetName=VCC Pin=NodeMCU-1-3V3
+Added Pin To Net: NetName=VCC Pin=NodeMCU-1-3V3
+Added Pin To Net: NetName=VCC Pin=R1-1
+Added Net: Name=VCC
+Added Class: Name=Sheet1
+Added Room: Name=Sheet1

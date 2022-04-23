@@ -1,0 +1,313 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT_SMARTHOME</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+   
+    <script src="socket.io/socket.io.js"></script>
+    <!-- <script src="https://www.chartjs.org/samples/latest/utils.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.1/chart.min.js"
+        integrity="sha512-2uu1jrAmW1A+SMwih5DAPqzFS2PI+OPw79OVLS4NJ6jGHQ/GmIVDDlWwz4KLO8DnoUmYdU8hTtFcp8je6zxbCg=="
+        crossorigin="anonymous"></script>
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <div class="container-fluid mt-3">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h-10 mb-0 text-info offset-md-5">Máy sấy thực phẩm</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2" >
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <img src="./icon/temp.png" alt="Girl in a jacket" width="60" height="60">
+                                        <div class="col mr-2 offset-md-1" >
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Temperature (*C)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id = "data-temp">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <img src="./icon/clock.png" alt="Girl in a jacket" width="70" height="70">
+                                        <div class="col mr-2 offset-md-1">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Real Time</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <span id = "data_time_h">0</span>
+                                                <span>h</span>
+                                                <span id = "data_time_p">0</span>
+                                                <span>p</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <img src="./icon/temp.png" alt="Girl in a jacket" width="60" height="60">
+                                        <div class="col mr-2 offset-md-1">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                Temperature setup (*C)
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id = "data-temp_setup">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <img src="./icon/humidity.png" alt="Girl in a jacket" width="60" height="60">
+                                        <div class="col mr-2 offset-md-1">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Humidity (%)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id = "data-humi">0</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row" >
+
+                        <!-- Area Chart -->
+                        <div class="col-xl-8 mb-4">
+                            <div class="card-chart shadow h-100">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Trạng thái hoạt động của thiết bị</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myChart" class="h-100"></canvas>
+                                        <script>
+                                            var temp_arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                                            var humi_arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                                            function chart_update(chart) {
+                                                chart.data.datasets[0].data = temp_arr;
+                                                chart.data.datasets[1].data = humi_arr;
+            
+                                                chart.update();
+                                            }
+                                            var ctx = document.getElementById('myChart').getContext('2d');
+                                            var myChart = new Chart(ctx, {
+                                                type: 'line',
+                                                data: {
+                                                    labels: ['0s', '1s', '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '10s', '11s', '12s'],
+                                                    datasets: [{
+                                                        label: 'Nhiệt độ',
+                                                        data: [],
+                                                        backgroundColor: ["red"],
+                                                        borderColor: ["red"],
+                                                        borderWidth: 1
+                                                    }, {
+                                                        label: 'Độ ẩm',
+                                                        data: [],
+                                                        backgroundColor: ["blue"],
+                                                        borderColor: ["blue"],
+                                                        borderWidth: 1
+                                                    }
+                                                    ]
+                                                },
+                                                options: {
+                                                    scales: {
+                                                        y: {
+                                                            beginAtZero: true
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 7 w-100 mb-4" >
+                            <div class="card-chart shadow h-100">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bảng điều chỉnh máy sấy</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div style="display: flex;justify-content: space-between;">
+                                        <label for="exampleFormControlInput1">Điều khiển quát gió</label>
+                                        <div>
+                                            <img id="iconden" src="https://icons.iconarchive.com/icons/icons8/android/512/Industry-Relay-icon.png" width="50" height="50">
+                                            <button type="submit" class="btn btn-primary" onclick="clicked_toggle_off()">Tắt</button>
+                                            <button type="submit" class="btn btn-primary"  onclick="clicked_toggle_on()">Bật</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1">Nhiệt độ (*C)</label>
+                                        <input  class="form-control"  placeholder="Nhập nhiệt độ" id ="data_temp_in">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">Thời gian</label>
+                                        <table >
+                                            <tr>
+                                            <td>Giờ: </td>
+                                            <td><input class="form-control"  placeholder="Nhập giờ" id="data_time_h_in" ></td>
+                                            <td>Phút: </td>
+                                            <td><input class="form-control"  placeholder="Nhập phút" id="data_time_p_in" ></td>
+                                            </tr>
+                                        </table>
+                                        <!-- <div class="form-input" style="display: flex;">
+                                            <input class="form-control"  placeholder="Nhập giờ" id="data_time_h_in" > 
+                                            <input class="form-control"  placeholder="Nhập phút" id="data_time_p_in" > 
+                                        </div> -->
+
+                                      </div>
+                                      <div class="w-100 row justify-content-center">
+                                        <button type="submit" class="btn btn-primary" onclick="checkFrom()">Lưu</button>
+                                      </div>
+                                    <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+         function checkFrom(){
+            var Data_set = {     
+                temp_set: 0,
+                time_h_set: 0,
+                time_p_set: 0
+            }
+
+            console.log(document.getElementById('data_temp_in').value);
+            console.log(document.getElementById('data_time_h_in').value);
+            console.log(document.getElementById('data_time_p_in').value);
+            var temp_in = document.getElementById('data_temp_in').value;
+            var time_h_in = document.getElementById('data_time_h_in').value;
+            var time_p_in = document.getElementById('data_time_p_in').value;
+            
+            if(temp_in =='' || temp_in > 99 ){
+                alert("Vui lòng nhập lại Temp_Nhỏ hơn 100");
+                return false;
+            }
+            
+            if(time_h_in =='' || time_h_in > 12){
+                alert("Vui lòng nhập lại Giờ_Nhỏ hơn 12h");
+                return false;
+            }
+            
+            if(time_p_in == '' || time_p_in > 60){
+                alert("Vui lòng nhập lại Phút_Nhỏ hơn 60 phút");
+                return false;
+            }
+            alert("Đã gửi dữ liệu thành công");
+            Data_set.temp_set = temp_in;
+            Data_set.time_h_set = time_h_in;
+            Data_set.time_p_set = time_p_in;
+            console.log(Data_set);
+            socket.emit("Data_setting",Data_set);
+            return true; 
+
+
+            
+        }
+        function clicked_toggle_on() {
+                document.getElementById("iconden").src = "https://iconsplace.com/wp-content/uploads/_icons/ffa500/256/png/relay-icon-11-256.png";
+                socket.emit("led_status", "1");
+                console.log("1");
+        };
+        function clicked_toggle_off() {
+                document.getElementById("iconden").src = "https://icons.iconarchive.com/icons/icons8/android/512/Industry-Relay-icon.png";
+                socket.emit("led_status", "0");
+                console.log("0");
+        };
+        var socket = io("http://localhost:5000");
+
+        socket.on("data_sensors", function (data) {
+            var data_sensors = JSON.parse(data);
+            console.log(data);
+            
+            document.getElementById("data-temp").innerHTML = data_sensors[0].temp;
+            document.getElementById("data-humi").innerHTML = data_sensors[0].humi;
+            document.getElementById("data_time_h").innerHTML = data_sensors[0].time_h;
+            document.getElementById("data_time_p").innerHTML = data_sensors[0].time_p;
+            document.getElementById("data-temp_setup").innerHTML = data_sensors[0].temp_set;
+            var idx = 0;
+            for (idx = 0; idx < 12; idx++) {
+                temp_arr[idx] = temp_arr[idx + 1];
+            }
+            temp_arr[12] = data_sensors[0].temp;
+
+            idx = 0;
+            for (idx = 0; idx < 12; idx++) {
+                humi_arr[idx] = humi_arr[idx + 1];
+            }
+            humi_arr[12] = data_sensors[0].humi;
+            chart_update(myChart);
+        });
+        //5s preforment 1 lan
+        setInterval(function () {
+            socket.emit("yeucau", "temphumi");
+        }, 2000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+Removed Pin From Net: NetName=VCC Pin=C2-2
+Removed Pin From Net: NetName=GND Pin=IN_220-1
+Removed Pin From Net: NetName=VCC Pin=R1-1
+Removed Pin From Net: NetName=DATA_TEM Pin=R1-2
+Removed Pin From Net: NetName=OUT_DEAY Pin=Relay-2
+Removed Pin From Net: NetName=VCC Pin=Relay-3
+Removed Member From Class: ClassName=Sheet1 Member=IN_220
+Change Component DesignItemId : Designator=R1 Old DesignItemId=Res New DesignItemId=R1/4W
+Change Component Footprint: Designator=R1 Old Footprint=RES-1/4W New Footprint=R1/2W
+Change Component Comment : Designator=R1 Old Comment=4k7 New Comment=1k
+Change Component Designator: OldDesignator=Relay NewDesignator=Relay1
+Added Component: Designator=C1(JP3-C1T)
+Added Component: Designator=J1(jp2h)
+Added Component: Designator=R2(R1/2W)
+Added Component: Designator=R3(R1/2W)
+Added Component: Designator=R4(R1/2W)
+Added Component: Designator=R5(RES-1/4W)
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=EXIT Pin=R1-1
+Added Pin To Net: NetName=VCC Pin=R1-2
+Added Pin To Net: NetName=UP Pin=R2-1
+Added Pin To Net: NetName=VCC Pin=R2-2
+Added Pin To Net: NetName=DOWN Pin=R3-1
+Added Pin To Net: NetName=VCC Pin=R3-2
+Added Pin To Net: NetName=SET Pin=R4-1
+Added Pin To Net: NetName=VCC Pin=R4-2
+Added Pin To Net: NetName=VCC Pin=R1-1
+Added Pin To Net: NetName=DATA_TEM Pin=R1-2
+Added Pin To Net: NetName=OUT_DEAY Pin=Relay1-3
+Added Pin To Net: NetName=220_IN Pin=C1-3
+Added Net: Name=220_IN
+Added Pin To Net: NetName=GND_IN Pin=C1-1
+Added Net: Name=GND_IN
+Added Pin To Net: NetName=VCC_5V Pin=C2-2
+Added Pin To Net: NetName=VCC_5V Pin=J1-2
+Added Pin To Net: NetName=VCC_5V Pin=NodeMCU-1-VIN
+Added Pin To Net: NetName=VCC_5V Pin=Relay1-2
+Added Net: Name=VCC_5V
+Added Member To Class: ClassName=Sheet1 Member=Component C1 JP3
+Added Member To Class: ClassName=Sheet1 Member=Component J1 Jumper 2
+Added Member To Class: ClassName=Sheet1 Member=Component R2 1k
+Added Member To Class: ClassName=Sheet1 Member=Component R3 1k
+Added Member To Class: ClassName=Sheet1 Member=Component R4 1k
+Added Member To Class: ClassName=Sheet1 Member=Component R5 4k7
+Added Room: Name=Sheet1

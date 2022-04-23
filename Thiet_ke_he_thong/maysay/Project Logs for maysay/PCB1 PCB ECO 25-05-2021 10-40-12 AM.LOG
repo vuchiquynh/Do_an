@@ -1,0 +1,27 @@
+Removed Pin From Net: NetName=EXIT Pin=NodeMCU-1-D5
+Removed Pin From Net: NetName=UP Pin=NodeMCU-1-D6
+Removed Pin From Net: NetName=DOWN Pin=NodeMCU-1-D7
+Removed Pin From Net: NetName=SET Pin=NodeMCU-1-D8
+Change Component Designator: OldDesignator=C2 NewDesignator=C4
+Added Component: Designator=C2(JP4-C1T)
+Added Component: Designator=C3(JP4-C1T)
+Added Pin To Net: NetName=SET Pin=C2-1
+Added Pin To Net: NetName=DOWN Pin=C2-2
+Added Pin To Net: NetName=UP Pin=C2-3
+Added Pin To Net: NetName=EXIT Pin=C2-4
+Added Pin To Net: NetName=DOWN1 Pin=C3-2
+Added Pin To Net: NetName=DOWN1 Pin=NodeMCU-1-D7
+Added Net: Name=DOWN1
+Added Pin To Net: NetName=EXIT1 Pin=C3-4
+Added Pin To Net: NetName=EXIT1 Pin=NodeMCU-1-D5
+Added Net: Name=EXIT1
+Added Pin To Net: NetName=SET1 Pin=C3-1
+Added Pin To Net: NetName=SET1 Pin=NodeMCU-1-D8
+Added Net: Name=SET1
+Added Pin To Net: NetName=UP1 Pin=C3-3
+Added Pin To Net: NetName=UP1 Pin=NodeMCU-1-D6
+Added Net: Name=UP1
+Added Member To Class: ClassName=Sheet1 Member=Component C3 JP4
+Added Member To Class: ClassName=Sheet1 Member=Component C4 JP4
+Added Member To Class: ClassName=Sheet1 Member=Component R3 1k
+Added Room: Name=Sheet1

@@ -1,0 +1,5 @@
+Change Component Designator: OldDesignator=C1 NewDesignator=Relay
+Added Component: Designator=IN_220(jp2h)
+Added Pin To Net: NetName=GND Pin=IN_220-1
+Added Member To Class: ClassName=Sheet1 Member=Component IN_220 Jumper 2
+Added Room: Name=Sheet1
